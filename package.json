@@ -1,0 +1,33 @@
+{
+  "name": "node-recommendations",
+  "version": "0.0.1",
+  "description": "Node.js recommendations module",
+  "keywords": [
+    "recommendations"
+  ],
+  "author": "Philmod <philippe.modard@gmail.com>",
+  "homepage": "http://github.com/philmod/node-recommendations",
+  "engines": {
+    "node": ">= v0.8.0"
+  },
+  "dependencies": {
+    "underscore": "1.4.x",
+    "node-uuid": "1.4.x"
+  },
+  "devDependencies": {
+    "should": "",
+    "mocha": ""
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "main": "index",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Philmod/node-recommendations.git"
+  },
+  "license": "BSD"
+}
