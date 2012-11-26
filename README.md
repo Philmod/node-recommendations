@@ -7,7 +7,9 @@
 ### Create a Recommendations Object
 With a name (and an options object).
 ```js
-var options = {};
+var options = {
+  correlation: 'distance' // distance and pearson are implemented
+};
 var r = recommendations.create('Books',options);
 ```
 
@@ -49,7 +51,7 @@ var critics = {'Lisa Rose': {'Lady in the Water': 2.5, 'Snakes on a Plane': 3.5,
   'Jack Matthews': {'Lady in the Water': 3.0, 'Snakes on a Plane': 4.0,
   'The Night Listener': 3.0, 'Superman Returns': 5.0, 'You, Me and Dupree': 3.5},
   'Toby': {'Snakes on a Plane':4.5,'You, Me and Dupree':1.0,'Superman Returns':4.0}};
-var r = recommendations.create('test',{});
+var r = recommendations.create('test',{correlation: 'pearson'});
 for (var j in critics) {
   var name = j;
   var p = r.addPeople(name);
