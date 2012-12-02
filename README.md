@@ -4,11 +4,12 @@
 
 ## Use
 
-### Create a Recommendations Object
-With a name (and an options object).
+### Create a Recommendations instance
+Which allow you to pass a name (and an options object), used for namespacing within Redis so that you may have several recommendation systems in the same db.
 ```js
 var options = {
   correlation: 'distance' // distance and pearson are implemented
+  client: null            // [optional] your redis client
 };
 var r = recommendations.create('Books',options);
 ```
@@ -63,6 +64,7 @@ console.log(person.getRecommendedItems());
 
 ## To do
  - Store in a database (Redis?)
+ - Make the calculation asynchronous
  - Manage the moment of calculation (costly)
  - Tests
 
