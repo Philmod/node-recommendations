@@ -9,7 +9,7 @@ Which allow you to pass a name (and an options object), used for namespacing wit
 ```js
 var options = {
   correlation: 'distance' // distance and pearson are implemented
-  client: null            // [optional] your redis client
+  redisClient: null       // [optional] your redis client
 };
 var r = recommendations.create('Books',options);
 ```
