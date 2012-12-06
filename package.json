@@ -13,7 +13,8 @@
   "dependencies": {
     "underscore": "1.4.x",
     "node-uuid": "1.4.x",
-    "redis": "0.8.x"
+    "redis": "0.8.x",
+    "async": "0.1.x"
   },
   "devDependencies": {
     "should": "",
