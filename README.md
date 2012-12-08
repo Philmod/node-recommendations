@@ -23,6 +23,13 @@ p.addItem('Superman',3.5); 					 			// another...
 p.addItem('Titanic',1);
 ```
 
+### Calculate the items similitudes
+This calculation is needed to get recommendations for people.
+The operation is costly, so run it on another machine, or in dead hours.
+```js
+r.calculateItemsim(function(err,res) { ... });
+```
+
 ### Get a person by his name
 ```js
 var person = r.getPeopleByName('Joe');
@@ -58,14 +65,23 @@ for (var j in critics) {
   var p = r.addPeople(name);
   for (var i in critics[name]) p.addItem(i,critics[name][i]);
 }
-var person = r.getPeopleByName('Toby');
-console.log(person.getRecommendedItems());
+r.calculateItemsim(function(err,res) { // calculate similar items
+  if (err) console.error(err);
+  else {
+    r.getPeopleByName(p.name, function(err,person) { // get last person
+      person.getRecommendedItems(function(err,res) {
+        if (err) console.log(err);
+        console.log('%o',res); // recommendations for 'person'
+        process.exit(0);
+      });
+    }); 
+  }
+});
+
 ```
 
 ## To do
- - Store in a database (Redis?)
  - Make the calculation asynchronous
- - Manage the moment of calculation (costly)
  - Tests
 
 ## Author
