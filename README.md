@@ -81,8 +81,7 @@ r.calculateItemsim(function(err,res) { // calculate similar items
 ```
 
 ## To do
- - Make the calculation asynchronous
- - Tests
+ - Automatic calculation
 
 ## Author
 
