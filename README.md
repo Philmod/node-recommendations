@@ -2,6 +2,10 @@
 
   Node.js recommendations module
 
+## Installation
+
+      $ npm install node-recommendations
+
 ## Use
 
 ### Create a Recommendations instance
