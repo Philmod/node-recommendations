@@ -52,12 +52,16 @@ describe('recommendations', function(){
 
 
   it('should clear the database for this namespace', function(done){
-    // r.client.flush(name+':*',function(err,res) {
-    r.client.flushall(function(err,res) {
-      should.equal(err,null);
-      should.equal(res,'OK');
-      done();
-    });
+    r.client.keys(name+':*', function(err,res) {      
+      var cmds = [];
+      res.forEach(function(k) {
+        cmds.push(['del', k]);
+      });
+      r.client.multi(cmds).exec(function(err,res) {
+        should.equal(err,null);
+        done();
+      });      
+    })
   });
 
   it('should creates the people and critics', function(done){
