@@ -11,9 +11,10 @@
 ### Create a Recommendations instance
 Which allow you to pass a name (and an options object), used for namespacing within Redis so that you may have several recommendation systems in the same db.
 ```js
+var recommendations = require('node-recommendations');
 var options = {
-  correlation: 'distance' // distance and pearson are implemented
-  redisClient: null       // [optional] your redis client
+    correlation: 'distance' // distance and pearson are implemented
+  , redisClient: null       // [optional] your redis client
 };
 var r = recommendations.create('Books',options);
 ```
@@ -46,6 +47,7 @@ person.getRecommendations();
 
 ## Example
 ```js
+var recommendations = require('node-recommendations');
 var critics = {'Lisa Rose': {'Lady in the Water': 2.5, 'Snakes on a Plane': 3.5,
   'Just My Luck': 3.0, 'Superman Returns': 3.5, 'You, Me and Dupree': 2.5,
   'The Night Listener': 3.0},
@@ -65,8 +67,8 @@ var critics = {'Lisa Rose': {'Lady in the Water': 2.5, 'Snakes on a Plane': 3.5,
   'Toby': {'Snakes on a Plane':4.5,'You, Me and Dupree':1.0,'Superman Returns':4.0}};
 var r = recommendations.create('test',{correlation: 'pearson'});
 for (var j in critics) {
-  var name = j;
-  var p = r.addPeople(name);
+  var name = j
+    , p    = r.addPeople(name);
   for (var i in critics[name]) p.addItem(i,critics[name][i]);
 }
 r.calculateItemsim(function(err,res) { // calculate similar items
