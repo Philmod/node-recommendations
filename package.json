@@ -1,6 +1,6 @@
 {
   "name": "node-recommendations",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Node.js recommendations module",
   "keywords": [
     "recommendations"
