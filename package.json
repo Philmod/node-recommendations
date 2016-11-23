@@ -12,9 +12,9 @@
   },
   "dependencies": {
     "async": "^1.5.2",
-    "node-uuid": "^1.4.7",
     "redis": "^2.5.3",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "uuid": "^3.0.0"
   },
   "devDependencies": {
     "mocha": "",
